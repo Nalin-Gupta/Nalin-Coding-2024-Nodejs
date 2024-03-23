@@ -17,17 +17,17 @@ This repository contains the Boo Backend Project, showcasing skills in backend d
 
 - Create and manage user profiles with detailed information.
 - Post, retrieve, and like comments on user profiles.
-- Unit and integration testing for robust code quality.
+- Test cases for robust code quality.
 
 ## Project Structure
 
 The project consists of the following components:
 
-- **src/controllers/**: Contains controller logic for profiles and comments.
-- **src/models/**: Mongoose models for profiles and comments.
-- **src/routes/**: Express Router definitions for different endpoints.
-- **src/app.js**: Configuration for Express middleware and routes.
-- **tests/**: Jest test files for controllers and routes.
+- **server/controllers/**: Contains controller logic for profiles and comments.
+- **server/models/**: Mongoose models for profiles and comments.
+- **server/routes/**: Express Router definitions for different endpoints.
+- **server/app.js**: Configuration for Express middleware and routes.
+- **server/tests/**: Jest test files for controllers and routes.
 
 ## Prerequisites
 
