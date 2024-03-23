@@ -44,10 +44,23 @@ exports.getCommentsByProfile = async (req, res) => {
 exports.likeComment = async (req, res) => {
     try {
         const comment = await Comment.findById(req.params.id);
+        const { profileName } = req.body;
         if (!comment) {
             return res.status(404).json({ error: 'Comment not found' });
         }
-        comment.likes += 1;
+        const profile = await Profile.findOne({ name: profileName });
+        if (!profile) {
+            return res.status(404).json({ error: 'Profile not found' });
+        }
+        const hasLiked = comment.likes.some(like => like.userId.equals(profile._id));
+
+        if (hasLiked) {
+            comment.likeCount -= 1;
+            comment.likes = comment.likes.filter(like => !like.userId.equals(profile._id));
+        } else {
+            comment.likeCount += 1;
+            comment.likes.push({ userId: profile._id });
+        }
         await comment.save();
         res.status(200).json(comment);
     } catch (error) {
