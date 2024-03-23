@@ -71,7 +71,7 @@ Content-Length: 268
 {
     "name": "Nalin",
     "description": "First Profile",
-    "mbti": "ISFJ",
+    "mbti": "INFP",
     "enneagram": "9w3",
     "variant": "sp/so",
     "tritype": 1,
