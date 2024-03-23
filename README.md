@@ -113,24 +113,14 @@ Host: localhost:3000
 Content-Type: application/json
 Content-Length: 80
 
-{
-    "name" : "Nalin",
-    "text" : "test comment",
-    "profileName" : "ram"
-}
 ```
 - Sort by createdAt
 ```http
-GET /api/comments/profile/ram?sortBy=createdAt HTTP/1.1
+GET /api/comments/profile/:profileName?sortBy=createdAt HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
 Content-Length: 80
 
-{
-    "name" : "Nalin",
-    "text" : "test comment",
-    "profileName" : "ram"
-}
 ```
 If no sortBy is specificed the comments will be sorted by default on the basis of createdAt.
 
