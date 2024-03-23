@@ -40,7 +40,7 @@ The project consists of the following components:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/boo-backend.git
+   git clone https://github.com/Nalin-Gupta/Nalin-Coding-2024-Nodejs.git
    cd boo-backend
    ```
 2. Install Dependencies
