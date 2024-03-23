@@ -26,14 +26,22 @@ exports.createComment = async (req, res) => {
 exports.getCommentsByProfile = async (req, res) => {
     try {
         const { profileName } = req.params;
+        const { sortBy } = req.query;
         const targetProfile = await Profile.findOne({ name: profileName }).populate('comments');
 
         if (!targetProfile) {
             return res.status(404).json({ error: 'Profile not found' });
         }
 
-        // Sort comments by most recent or number of likes (example sorting by date)
-        const sortedComments = targetProfile.comments.sort((a, b) => b.createdAt - a.createdAt);
+        let sortedComments;
+        if (sortBy === 'likes') {
+            sortedComments = targetProfile.comments.sort((a, b) => b.likes.length - a.likes.length);
+        } else if (sortBy === 'createdAt') {
+            sortedComments = targetProfile.comments.sort((a, b) => b.createdAt - a.createdAt);
+        } else {
+            sortedComments = targetProfile.comments.sort((a, b) => b.createdAt - a.createdAt);
+        }
+
 
         res.status(200).json(sortedComments);
     } catch (error) {
