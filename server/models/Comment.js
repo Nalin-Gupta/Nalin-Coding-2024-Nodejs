@@ -7,7 +7,7 @@ const LikeSchema = new mongoose.Schema({
 });
 
 const commentSchema = new mongoose.Schema({
-    text: String,
+    text: {type : String , required : true},
     author: { type: mongoose.Schema.Types.ObjectId, ref: 'Profile' },
     likes: [LikeSchema],
     likeCount: { type: Number, default: 0 },

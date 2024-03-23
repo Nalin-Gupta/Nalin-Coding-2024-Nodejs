@@ -26,7 +26,7 @@ exports.createComment = async (req, res) => {
 exports.getCommentsByProfile = async (req, res) => {
     try {
         const { profileName } = req.params;
-        const { sortBy } = req.query;
+        const { sortBy } = req.query || '';
         const targetProfile = await Profile.findOne({ name: profileName }).populate('comments');
 
         if (!targetProfile) {

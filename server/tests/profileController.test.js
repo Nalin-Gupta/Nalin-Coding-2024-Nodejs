@@ -1,17 +1,6 @@
 const request = require('supertest');
 const app = require('./../app');
 
-let server;
-
-beforeAll(async () => {
-  server = await app.listen(3001); 
-});
-
-afterAll(async () => {
-  if (server) {
-    await server.close();
-  }
-});
 
 describe('Profile CRUD Operations', () => {
     let profileID;
