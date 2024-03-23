@@ -41,7 +41,6 @@ The project consists of the following components:
 
    ```bash
    git clone https://github.com/Nalin-Gupta/Nalin-Coding-2024-Nodejs.git
-   cd boo-backend
    ```
 2. Install Dependencies
    ```bash
