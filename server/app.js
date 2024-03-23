@@ -1,27 +1,33 @@
 'use strict';
 
 const express = require('express');
-const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
 const { MongoMemoryServer } = require('mongodb-memory-server');
+
+const {connectToMongoDB} = require('./database/mongo.js')
+const profileRoutes = require('./routes/profile.js');
+
 const app = express();
 const port =  process.env.PORT || 3000;
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
+app.use(bodyParser.json());
 
-//Mongo Setup 
-let mongoServer;
-mongoServer = new MongoMemoryServer();
-mongoServer.getUri().then((mongoUri) => {
-  mongoose.connect(mongoUri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-});
+app.use('/api/profiles', profileRoutes);
 
-// routes
-app.use('/', require('./routes/profile')());
+async function startServer() {
+  try {
+    await connectToMongoDB();
 
-// start server
-const server = app.listen(port);
-console.log('Express started. Listening on %s', port);
+    const server = app.listen(port);
+    console.log('Express started. Listening on %s', port);
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error);
+  }
+}
+startServer();
+
+
+
