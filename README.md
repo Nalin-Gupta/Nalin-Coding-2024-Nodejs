@@ -132,7 +132,6 @@ Content-Type: application/json
 Content-Length: 35
 
 {
-    
     "profileName" : "User"
 }
 ```
