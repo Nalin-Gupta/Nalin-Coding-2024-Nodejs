@@ -108,7 +108,7 @@ Content-Length: 94
 - Sort By Likes
 ```http
 
-GET /api/comments/profile/ram?sortBy=likes HTTP/1.1
+GET /api/comments/profile/:profileName?sortBy=likes HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
 Content-Length: 80
