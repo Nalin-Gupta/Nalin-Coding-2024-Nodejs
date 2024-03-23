@@ -3,8 +3,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
-const { MongoMemoryServer } = require("mongodb-memory-server");
-
 const { connectToMongoDB } = require("./database/mongo.js");
 const profileRoutes = require("./routes/profile.js");
 const commentRoutes = require("./routes/comment.js");
