@@ -33,7 +33,6 @@ The project consists of the following components:
 
 - Node.js (v14.x or later)
 - npm (Node Package Manager)
-- MongoDB (Make sure MongoDB is installed and running on your machine)
 
 ## Installation
 
